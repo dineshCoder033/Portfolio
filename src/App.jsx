@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { FolderIcon } from './components/FolderIcon';
 import { SocialDock } from './components/SocialDock';
+import { FloatingGlyphs } from './components/FloatingGlyphs';
+import { SparkleCursor } from './components/SparkleCursor';
+import { ClockFlipName } from './components/ClockFlipName';
 import { AboutWindow } from './components/windows/AboutWindow';
 import { TechStackWindow } from './components/windows/TechStackWindow';
 import { WorkWindow } from './components/windows/WorkWindow';
@@ -76,8 +79,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen w-full flex flex-col justify-between bg-grid-pattern relative overflow-x-hidden select-none">
+      {/* Custom Elastic Spring Ring + Pori Pori Sparkle Cursor */}
+      <SparkleCursor />
+
+      {/* Background Floating Pixel Tech Glyphs with Parallax */}
+      <FloatingGlyphs />
+
       {/* Desktop Workspace matching reference layout */}
-      <main className="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-12 md:px-16 py-6 sm:py-10 flex flex-col justify-center">
+      <main className="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-12 md:px-16 py-6 sm:py-10 flex flex-col justify-center relative z-10">
         {/* Desktop Layout Grid */}
         <div className="grid grid-cols-12 items-center min-h-[65vh] sm:min-h-[72vh]">
           {/* Left Column Folders: About (top), Work (bottom) */}
@@ -107,9 +116,7 @@ export default function App() {
           <div className="col-span-6 sm:col-span-8 flex flex-col items-center justify-between h-[340px] sm:h-[420px] my-auto text-center">
             {/* Title & Subtitle in the upper/middle area */}
             <div className="my-auto flex flex-col items-center justify-center pt-2 sm:pt-4">
-              <h1 className="font-sans font-light tracking-[0.24em] sm:tracking-[0.32em] md:tracking-[0.40em] text-4xl sm:text-6xl md:text-8xl text-[#6b7362] uppercase leading-none transition-all duration-300 hover:scale-[1.02] cursor-default">
-                DINESH
-              </h1>
+              <ClockFlipName />
               <p className="font-mono text-xs sm:text-sm text-[#7e8775] tracking-[0.25em] sm:tracking-[0.3em] uppercase mt-3 sm:mt-4 font-semibold">
                 SOFTWARE DEVELOPER & WEB DESIGNER
               </p>
