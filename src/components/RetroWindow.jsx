@@ -19,10 +19,11 @@ export const RetroWindow = ({
   const [isDragging, setIsDragging] = useState(false);
   const dragRef = useRef({ startX: 0, startY: 0, startPosX: 0, startPosY: 0 });
 
-  // Reset or initialize position when window opens
+  // Reset or initialize position when window opens (always dead-center on mobile)
   useEffect(() => {
     if (isOpen) {
-      setPos(initialOffset || { x: 0, y: 0 });
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+      setPos(isMobile ? { x: 0, y: 0 } : (initialOffset || { x: 0, y: 0 }));
     }
   }, [isOpen]);
 
@@ -123,7 +124,7 @@ export const RetroWindow = ({
         left: `calc(50% + ${pos.x}px)`,
         transform: 'translate(-50%, -50%)',
       }}
-      className={`w-[94vw] sm:w-full ${maxWidth} max-h-[88vh] flex flex-col pointer-events-auto select-none`}
+      className={`w-[94vw] sm:w-[92vw] lg:w-full ${maxWidth} max-h-[86vh] sm:max-h-[88vh] flex flex-col pointer-events-auto select-none`}
     >
       {/* Modal Dialog Window Container */}
       <div className="w-full h-full bg-[#fcfaf6] border-[2.5px] border-[#2c3327] rounded-2xl shadow-retro-xl overflow-hidden flex flex-col animate-pop-in">
@@ -131,7 +132,7 @@ export const RetroWindow = ({
         <div
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
-          className="bg-[#5c6753] border-b-2 border-[#2c3327] px-4 py-2.5 flex items-center justify-between select-none cursor-grab active:cursor-grabbing hover:brightness-105 transition-colors"
+          className="bg-[#5c6753] border-b-2 border-[#2c3327] px-3 sm:px-4 py-2.5 flex items-center justify-between select-none touch-none cursor-grab active:cursor-grabbing hover:brightness-105 transition-colors"
           title="Click and drag to move window"
         >
           {/* Path / Title in Monospace */}

@@ -85,12 +85,73 @@ export default function App() {
       {/* Background Floating Pixel Tech Glyphs with Parallax */}
       <FloatingGlyphs />
 
-      {/* Desktop Workspace matching reference layout */}
-      <main className="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-12 md:px-16 py-6 sm:py-10 flex flex-col justify-center relative z-10">
-        {/* Desktop Layout Grid */}
-        <div className="grid grid-cols-12 items-center min-h-[65vh] sm:min-h-[72vh]">
+      {/* Desktop / Tablet / Mobile Workspace */}
+      <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 py-6 sm:py-10 flex flex-col justify-center relative z-10">
+        {/* Mobile Layout (< 640px): Hero on top, clean 2 + 3 folder grid below */}
+        <div className="flex sm:hidden flex-col items-center justify-center gap-8 py-4 my-auto">
+          {/* Mobile Hero Title & Subtitle */}
+          <div className="flex flex-col items-center text-center px-2">
+            <ClockFlipName />
+            <p className="font-mono text-[11px] text-[#7e8775] tracking-[0.18em] uppercase mt-3 font-semibold leading-relaxed">
+              SOFTWARE DEVELOPER & WEB DESIGNER
+            </p>
+          </div>
+
+          {/* Mobile Folder Grid: Row 1 (2 folders) + Row 2 (3 folders) */}
+          <div className="w-full max-w-xs space-y-5">
+            <div className="grid grid-cols-2 gap-4 justify-items-center">
+              <FolderIcon
+                id="about"
+                label="about"
+                type="folder"
+                isOpen={openWindows.about}
+                isActive={openWindows.about}
+                onClick={toggleWindow}
+              />
+              <FolderIcon
+                id="project"
+                label="project"
+                type="folder"
+                isOpen={openWindows.project}
+                isActive={openWindows.project}
+                onClick={toggleWindow}
+              />
+            </div>
+
+            <div className="grid grid-cols-3 gap-2 justify-items-center items-start">
+              <FolderIcon
+                id="work"
+                label="work"
+                type="folder"
+                isOpen={openWindows.work}
+                isActive={openWindows.work}
+                onClick={toggleWindow}
+              />
+              <FolderIcon
+                id="techstack"
+                label="tech stack"
+                type="folder"
+                isOpen={openWindows.techstack}
+                isActive={openWindows.techstack}
+                onClick={toggleWindow}
+                badge="TOOLS"
+              />
+              <FolderIcon
+                id="contact"
+                label="contact"
+                type="folder"
+                isOpen={openWindows.contact}
+                isActive={openWindows.contact}
+                onClick={toggleWindow}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Tablet & Desktop Layout Grid (sm: 640px+) */}
+        <div className="hidden sm:grid grid-cols-12 items-center min-h-[68vh] md:min-h-[72vh]">
           {/* Left Column Folders: About (top), Work (bottom) */}
-          <div className="col-span-3 sm:col-span-2 flex flex-col items-center sm:items-start justify-between h-[340px] sm:h-[420px] my-auto">
+          <div className="col-span-2 flex flex-col items-start justify-between h-[360px] md:h-[420px] my-auto">
             {/* 1. About Folder (Top) */}
             <FolderIcon
               id="about"
@@ -113,11 +174,11 @@ export default function App() {
           </div>
 
           {/* Center Column: Big DINESH Title, Subtitle & Tech Stack Folder on the exact same bottom line */}
-          <div className="col-span-6 sm:col-span-8 flex flex-col items-center justify-between h-[340px] sm:h-[420px] my-auto text-center">
+          <div className="col-span-8 flex flex-col items-center justify-between h-[360px] md:h-[420px] my-auto text-center px-2">
             {/* Title & Subtitle in the upper/middle area */}
             <div className="my-auto flex flex-col items-center justify-center pt-2 sm:pt-4">
               <ClockFlipName />
-              <p className="font-mono text-xs sm:text-sm text-[#7e8775] tracking-[0.25em] sm:tracking-[0.3em] uppercase mt-3 sm:mt-4 font-semibold">
+              <p className="font-mono text-xs md:text-sm text-[#7e8775] tracking-[0.2em] md:tracking-[0.3em] uppercase mt-3 sm:mt-4 font-semibold">
                 SOFTWARE DEVELOPER & WEB DESIGNER
               </p>
             </div>
@@ -137,7 +198,7 @@ export default function App() {
           </div>
 
           {/* Right Column Folders: Project (top), Contact (bottom) */}
-          <div className="col-span-3 sm:col-span-2 flex flex-col items-center sm:items-end justify-between h-[340px] sm:h-[420px] my-auto">
+          <div className="col-span-2 flex flex-col items-end justify-between h-[360px] md:h-[420px] my-auto">
             {/* 4. Project Folder (Top) */}
             <FolderIcon
               id="project"

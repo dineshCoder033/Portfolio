@@ -75,7 +75,7 @@ export const ClockFlipName = () => {
         playFolderClick();
         runClockAnimation();
       }}
-      className="font-sans font-light text-4xl sm:text-6xl md:text-8xl text-[#6b7362] uppercase leading-none transition-transform duration-300 hover:scale-[1.02] cursor-pointer inline-flex items-center justify-center gap-[0.18em] sm:gap-[0.26em] md:gap-[0.34em] select-none"
+      className="font-sans font-light text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#6b7362] uppercase leading-none transition-transform duration-300 hover:scale-[1.02] cursor-pointer inline-flex items-center justify-center gap-[0.14em] sm:gap-[0.22em] md:gap-[0.28em] lg:gap-[0.34em] select-none"
       style={{ perspective: '600px' }}
       title="Click or hover to replay clock flip"
     >
