@@ -1,0 +1,55 @@
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    scale: 0.95;
+  }
+  70% {
+    opacity: 1;
+    scale: 1.01;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-pop-in {
+  animation: popIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-wiggle:hover {
+  animation: wiggle 0.35s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* Retro bevel effect */
+.retro-border {
+  border: 2px solid #363d30;
+}
+
+.retro-border-bold {
+  border: 2.5px solid #2d3328;
+}
+
+/* CRT scanline subtle overlay if wanted */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.03) 50%
+  );
+  background-size: 100% 4px;
+}
